@@ -1,4 +1,4 @@
-project_id = 0
+project_id = 1824123
 jar = "build/libs/walledcitymod-0.3.0.jar"
 changelog = "CHANGELOG.md"
 changelog_type = "markdown"
