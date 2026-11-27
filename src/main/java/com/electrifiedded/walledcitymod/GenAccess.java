@@ -94,5 +94,17 @@ public final class GenAccess {
     /** Server-thread work (entities, villages, chat) after the structure's blocks are committed. */
     public static void onMain(Runnable r) { ChunkStagedGen.onMain(r); }
 
+    /** Torch placement check that never touches the World off-thread (vanilla canPlaceBlockAt loads chunks). */
+    public static boolean canPlaceTorch(World w, int x, int y, int z) {
+        if (s() == null) return Blocks.TORCH.canPlaceBlockAt(w, new BlockPos(x, y, z));
+        if (state(w, x, y - 1, z).isTopSolid()) return true;
+        int[][] d = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        for (int[] o : d) {
+            IBlockState st = state(w, x + o[0], y, z + o[1]);
+            if (st.isFullCube() && st.isOpaqueCube()) return true;
+        }
+        return false;
+    }
+
     public static boolean staged() { return s() != null; }
 }

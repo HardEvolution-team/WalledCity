@@ -46,15 +46,15 @@ public class CommandBuild extends CommandBase {
          int posZ = parseInt(coordinate[coordinate.length - 1]);
          World world = server.worlds[coordinate.length == 3 ? 0 : Integer.parseInt(coordinate[1])];
          if ("ruin".equalsIgnoreCase(coordinate[0])) {
-            com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> new WorldGenCARuins(PopulatorCARuins.instance, world, new Random(), posX, posZ, 1, 1.0).run());
+            com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> new WorldGenCARuins(PopulatorCARuins.instance, world, new com.electrifiedded.archaiclib.util.FastRandom(), posX, posZ, 1, 1.0).run());
          } else if ("wall".equalsIgnoreCase(coordinate[0])) {
-            com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> new WorldGenGreatWall(PopulatorGreatWall.instance, world, new Random(), posX, posZ, 1, 1.0).run());
+            com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> new WorldGenGreatWall(PopulatorGreatWall.instance, world, new com.electrifiedded.archaiclib.util.FastRandom(), posX, posZ, 1, 1.0).run());
          } else if ("city".equalsIgnoreCase(coordinate[0])) {
-            com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> new WorldGenWalledCity(PopulatorWalledCity.instance, world, new Random(), posX, posZ, 1, 1.0).run());
+            com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> new WorldGenWalledCity(PopulatorWalledCity.instance, world, new com.electrifiedded.archaiclib.util.FastRandom(), posX, posZ, 1, 1.0).run());
          } else if ("undcity".equalsIgnoreCase(coordinate[0])) {
             com.electrifiedded.archaiclib.world.ChunkStagedGen.submit(world, () -> {
             PopulatorWalledCity city = PopulatorWalledCity.instance;
-            WorldGeneratorThread wgt = new WorldGenUndergroundCity(city, world, new Random(), posX, posZ, 1, 1.0);
+            WorldGeneratorThread wgt = new WorldGenUndergroundCity(city, world, new com.electrifiedded.archaiclib.util.FastRandom(), posX, posZ, 1, 1.0);
             int maxSpawnHeight = Building.findSurfaceJ(world, posX, posZ, 255, false, -1) - 15 - 5;
             int minSpawnHeight = 34;
             if (minSpawnHeight <= maxSpawnHeight) {

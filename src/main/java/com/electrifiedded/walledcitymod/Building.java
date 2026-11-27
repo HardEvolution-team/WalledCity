@@ -423,7 +423,7 @@ public class Building {
       if (blc == Blocks.AIR && block[3] >= 3) {
          this.setPainting(block, block[3] - 3);
       } else if (blc == Blocks.TORCH) {
-         if (Blocks.TORCH.canPlaceBlockAt(this.world, LegacyWorld.pos(block[0], block[1], block[2]))) {
+         if (GenAccess.canPlaceTorch(this.world, block[0], block[1], block[2])) {
             GenAccess.setBlock(this.world, block[0], block[1], block[2], blc, block[3], 3);
          }
       } else if (blc == Blocks.GLOWSTONE) {
@@ -1522,7 +1522,7 @@ public class Building {
          {-1, -1, 1, 0, -1, -1}, {-1, 0, 0, 0, 1, -1}, {1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 1}, {-1, 1, 0, 0, 0, -1}, {-1, -1, 0, 1, -1, -1}
       };
       randLightingHash = new boolean[512];
-      Random rand = new Random();
+      Random rand = new com.electrifiedded.archaiclib.util.FastRandom();
 
       for (int m = 0; m < randLightingHash.length; m++) {
          randLightingHash[m] = rand.nextInt(10) == 0;

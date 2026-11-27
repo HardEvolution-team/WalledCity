@@ -22,7 +22,7 @@ import net.minecraft.world.World;
    modid = "caruins",
    name = "Cellular Automata Generator",
    version = Reference.VERSION,
-   dependencies = "required-after:archaiclib@[1.36.0,);after:biomesoplenty",
+   dependencies = "required-after:archaiclib@[1.40.0,);after:biomesoplenty",
    acceptableRemoteVersions = "*"
 )
 public class PopulatorCARuins extends BuildingExplorationHandler {

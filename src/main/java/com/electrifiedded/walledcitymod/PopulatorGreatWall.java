@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.world.World;
 
-@Mod(modid = "greatwallmod", name = "Great Wall Mod", version = Reference.VERSION, dependencies = "required-after:archaiclib@[1.36.0,);after:biomesoplenty", acceptableRemoteVersions = "*")
+@Mod(modid = "greatwallmod", name = "Great Wall Mod", version = Reference.VERSION, dependencies = "required-after:archaiclib@[1.40.0,);after:biomesoplenty", acceptableRemoteVersions = "*")
 public class PopulatorGreatWall extends BuildingExplorationHandler {
    @Instance("greatwallmod")
    public static PopulatorGreatWall instance;
